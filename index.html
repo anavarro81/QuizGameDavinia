@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Estilos Base */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* Contenedor de la Tarjeta */
+      .quiz-card {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+      }
+
+      /* Enunciado */
+      .question-header {
+        margin-bottom: 1.5rem;
+      }
+
+      .question-number {
+        color: #3498db;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .question-text {
+        font-size: 1.25rem;
+        color: #2c3e50;
+        margin: 0;
+      }
+
+      /* Opciones de Respuesta */
+      .options-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 2rem;
+      }
+
+      .option-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .option-item:hover {
+        background-color: #f8f9fa;
+        border-color: #3498db;
+      }
+
+      .option-item input[type="radio"] {
+        margin-right: 15px;
+        accent-color: #3498db;
+        width: 18px;
+        height: 18px;
+      }
+
+      .option-label {
+        font-size: 1rem;
+        color: #4a4a4a;
+        cursor: pointer;
+      }
+
+      /* Botones de Navegación */
+      .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+
+      .btn {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        flex: 1;
+      }
+
+      .btn-prev {
+        background-color: #95a5a6;
+        color: white;
+      }
+
+      .btn-next {
+        background-color: #3498db;
+        color: white;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+
+      .btn:disabled {
+        background-color: #dfe6e9;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="main-container">
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="utils.js"></script>
+  </body>
+</html>
+
+<template id="quiz-card">
+  <div class="quiz-card">
+    <div class="question-header">
+      <!--Pregunta x de 10 -->
+      <span class="question-number" id="question-number"> </span>
+
+      <h2 class="question-text" id="question-text">
+        <!-- ¿Cuál de estos lenguajes se utiliza para dar estilo a las páginas
+            web? -->
+      </h2>
+    </div>
+
+    <form class="options-container">
+      <label class="option-item">
+        <input type="radio" name="quiz-option" value="1" />
+        <span class="option-label">JavaScript</span>
+      </label>
+
+      <label class="option-item">
+        <input type="radio" name="quiz-option" value="2" />
+        <span class="option-label">Python</span>
+      </label>
+
+      <label class="option-item">
+        <input type="radio" name="quiz-option" value="3" />
+        <span class="option-label">CSS</span>
+      </label>
+
+      <label class="option-item">
+        <input type="radio" name="quiz-option" value="4" />
+        <span class="option-label">PHP</span>
+      </label>
+    </form>
+
+    <div class="navigation-buttons">
+      <button type="button" class="btn btn-prev" id="prev-question">
+        Anterior
+      </button>
+      <button type="button" class="btn btn-next" id="next-question">
+        Siguiente
+      </button>
+    </div>
+  </div>
+</template>
