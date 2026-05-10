@@ -17,20 +17,10 @@ const calcPosLS = () => {
   pos.push(lS);
 };
 
-const showQuestion = (p, textQ, order) => {
-  let nTexto = document.createTextNode(`${order} ${textQ}`);
-  p.appendChild(nTexto);
-};
-const showAnswers = (ol, arrayAnswers) => {
-  let lis = ol.getElementsByTagName("li");
-  for (let i = 0; i < arrayAnswers.length; i++) {
-    let nTexto = document.createTextNode(arrayAnswers[i]);
-    lis[i].appendChild(nTexto);
-  }
-};
+
+
 //Mostramos las preguntas del localStorage
 calcPosLS();
-
 
 const loadLSQuestion = () => {
   let question = {
@@ -83,7 +73,6 @@ const loadApiQuestion = () => {
     });
 };
 
-// showQuestion(pQuestions[0], quiz[0].question, 1);
 
 const starGame = () => {
   loadLSQuestion();
@@ -94,8 +83,6 @@ const starGame = () => {
 
 const createQuestionCard = (question, answers, order) => {
   const template = document.getElementById("quiz-card");
-
-  
 
   const instancia = template.content.cloneNode(true);
 
@@ -120,8 +107,6 @@ const createQuestionCard = (question, answers, order) => {
     if (pregunta < 9) {
       pregunta++;
     }
-
-    
 
     const container = document.getElementById("main-container");
     container.innerHTML = "";
@@ -156,5 +141,3 @@ const createQuestionCard = (question, answers, order) => {
 };
 
 starGame();
-
-
